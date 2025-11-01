@@ -27,8 +27,8 @@ function GuessInput({ handleGuess, gameStatus }) {
         id='guess-input' 
         type='text'
         required
+        disabled={gameStatus !== 'running'}
         pattern='[A-Za-z]{5}'
-        disabled={gameStatus === 'lost'}
         value={tentativeGuess}
         onChange={handleChange}
         ></input>
