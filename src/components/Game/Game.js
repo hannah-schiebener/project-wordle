@@ -13,10 +13,10 @@ console.info({ answer });
 function Game() {
   const [guessResults, setGuessResults] = React.useState([]);
 
-  function handleGuess(guess) {
+  function handleGuess(tentativeGuess) {
     const newGuess= {
       id: crypto.randomUUID(),
-      guess,
+      value: tentativeGuess,
     };
 
     const nextGuessResults = [...guessResults, newGuess];
