@@ -3,24 +3,22 @@ import React from 'react';
 function GuessInput() {
   const [guess, setGuess] = React.useState('');
 
-  const changeCase = event => {
-    const value = event.target.value.toUpperCase();
-
-    if (value.length <= 5) {
-      setGuess(value);
-    }
+  const handleChange = event => {
+    const nextGuess = event.target.value.toUpperCase();
+    setGuess(nextGuess);
   }
 
-  const submitCase = event => {
+  const handleSubmit = event => {
     event.preventDefault();
+
     console.log({guess});
-    setGuess('')
+    setGuess('');
   }
 
   return <div>
     <form 
       className='guess-input-wrapper'
-      onSubmit={submitCase}
+      onSubmit={handleSubmit}
     >
       <label htmlFor='guess-input'>
         Enter guess:
@@ -28,10 +26,10 @@ function GuessInput() {
       <input 
         id='guess-input' 
         type='text'
-        required={true}
+        required
         pattern='[A-Za-z]{5}'
         value={guess}
-        onChange={changeCase}
+        onChange={handleChange}
         ></input>
     </form>
   </div>;
