@@ -11,8 +11,8 @@ function GuessResults({ guessResults, answer }) {
         return (
           <Guess 
             key={num}
-            answer={answer}
             value={guessResults[num]}
+            answer={answer}
           />
         )
       })
